@@ -118,6 +118,8 @@ public class MainPage extends AbstractPage {
     }
 
     public boolean isPickUpLocationAlertDisplayed() {
+        new WebDriverWait(driver, 30)
+                .until(ExpectedConditions.visibilityOf(enterPickUpLocationAlert));
         try {
             return enterPickUpLocationAlert.isDisplayed();
         } catch (NoSuchElementException exception) {
