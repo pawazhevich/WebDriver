@@ -19,7 +19,7 @@ public class UserDataCreator {
     public static UserData withIncorrectPassword() {
         return new UserData(
                 TestDataReader.getTestData(TESTDATA_USER_EMAIL),
-                TestDataReader.getTestData(TESTDATA_USER_PASSWORD)
+                TestDataReader.getTestData(TESTDATA_USER_INCORRECT_PASSWORD)
         );
     }
 

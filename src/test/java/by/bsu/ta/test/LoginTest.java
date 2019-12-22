@@ -19,7 +19,7 @@ public class LoginTest extends CommonConditions {
     }
 
     @Test
-    public void oneCatNotLoginWithIncorrectPassword() {
+    public void oneCanNotLoginWithIncorrectPassword() {
         String expectedAlertMessage = "PLEASE ENTER A VALID EMAIL AND PASSWORD.";
         UserData userWithIncorrectPassword = UserDataCreator.withIncorrectPassword();
         Assert.assertEquals( new MainPage(driver)
@@ -30,7 +30,7 @@ public class LoginTest extends CommonConditions {
     }
 
     @Test
-    public void oneCatLoginWithCorrectData() {
+    public void oneCanLoginWithCorrectData() {
         UserData userWithCorrectData = UserDataCreator.withCorrectLoginAndPassword();
         Assert.assertTrue(new MainPage(driver)
                 .openPage()
