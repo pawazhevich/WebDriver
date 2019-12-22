@@ -65,6 +65,9 @@ public class MainPage extends AbstractPage {
     @FindBy(id = "member-response-left")
     private WebElement loginFailedAlert;
 
+    @FindBy(id = "ae-search")
+    private WebElement formCarRent;
+
     public MainPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(this.driver, this);
@@ -78,9 +81,7 @@ public class MainPage extends AbstractPage {
     }
 
     public RentSearchResultPage submitCarRentForm() {
-        new WebDriverWait(driver, 30)
-                .until(ExpectedConditions.elementToBeClickable(this.buttonFindYourCar));
-        this.buttonFindYourCar.click();
+    this.formCarRent.submit();
         logger.info("Car rent form submit performed");
         if(!driver.getCurrentUrl().equals(this.BASE_URL)) {
             logger.info("Redirecting to Rent Search Result Page");
