@@ -98,11 +98,12 @@ public class MainPage extends AbstractPage {
     private MainPage selectInputValueFromDropList(WebElement input, String subValue, WebElement matchingElement) {
         logger.info("Select input value from drop list");
         WebDriverWait wait = new WebDriverWait(driver, 30);
-        ExpectedCondition<WebElement> waitCondition = ExpectedConditions.visibilityOf(matchingElement);
+        ExpectedCondition<WebElement> visibilityCondition = ExpectedConditions.visibilityOf(matchingElement);
         input.sendKeys(subValue);
-        wait.until(waitCondition);
+        wait.until(visibilityCondition);
+        wait.until(ExpectedConditions.elementToBeClickable(matchingElement));
         matchingElement.click();
-        wait.until(ExpectedConditions.not(waitCondition));
+        wait.until(ExpectedConditions.not(visibilityCondition));
         return this;
     }
 
