@@ -28,4 +28,13 @@ public class LoginTest extends CommonConditions {
                 .getLoginFailedAlertMessage()
                 , expectedAlertMessage);
     }
+
+    @Test
+    public void oneCatLoginWithCorrectData() {
+        UserData userWithCorrectData = UserDataCreator.withCorrectLoginAndPassword();
+        Assert.assertTrue(new MainPage(driver)
+                .openPage()
+                .loginUser(userWithCorrectData)
+                .isUserLoggedIn());
+    }
 }
