@@ -78,6 +78,8 @@ public class MainPage extends AbstractPage {
     }
 
     public RentSearchResultPage submitCarRentForm() {
+        new WebDriverWait(driver, 30)
+                .until(ExpectedConditions.elementToBeClickable(this.buttonFindYourCar));
         this.buttonFindYourCar.click();
         logger.info("Car rent form submit performed");
         if(!driver.getCurrentUrl().equals(this.BASE_URL)) {
