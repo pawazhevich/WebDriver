@@ -176,6 +176,8 @@ public class MainPage extends AbstractPage {
     }
 
     public boolean isUserLoggedIn() {
+        new WebDriverWait(driver, 30)
+                .until(ExpectedConditions.not(ExpectedConditions.visibilityOf(inputEmail)));
         return driver.findElement(By.xpath("/html/body/div[1]/div/div/div/nav/div/ul[2]")).isDisplayed();
     }
 }
