@@ -13,6 +13,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.concurrent.TimeUnit;
+
 public class MainPage extends AbstractPage {
 
     private final Logger logger = LogManager.getRootLogger();
@@ -148,6 +150,7 @@ public class MainPage extends AbstractPage {
 
     public String getLoginFailedAlertMessage() {
         logger.info("Receiving login fail alert message");
+        new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOf(this.loginFailedAlert));
         return this.loginFailedAlert.getText();
     }
 }
