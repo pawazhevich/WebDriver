@@ -4,6 +4,7 @@ import by.bsu.ta.model.CarRentData;
 import by.bsu.ta.model.UserData;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -160,5 +161,17 @@ public class MainPage extends AbstractPage {
         logger.info("Receiving login fail alert message");
         new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOf(this.loginFailedAlert));
         return this.loginFailedAlert.getText();
+    }
+
+    public void switchLanguage() {
+        WebElement languageSwitch = driver
+                .findElement(By.xpath("/html/body/div[1]/div/div/div/header/div[1]/div[1]/div/li/span"));
+        languageSwitch.click();
+        driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[1]/div[3]/div[1]/dl[1]/dd/dl/a[1]/dd"))
+                .click();
+    }
+
+    public String getBaseUrl() {
+        return BASE_URL;
     }
 }
