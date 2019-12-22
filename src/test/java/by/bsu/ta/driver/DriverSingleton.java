@@ -15,7 +15,7 @@ public class DriverSingleton {
         if (null == driver) {
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
-            driver.manage().window().setSize(new Dimension(1860, 1008));
+            driver.manage().window().setSize(new Dimension(1050, 2000));
         }
         return driver;
     }

@@ -23,7 +23,6 @@ public class TestListener implements ITestListener {
     }
 
     public void onTestSuccess(ITestResult iTestResult) {
-
     }
 
     public void onTestFailure(ITestResult iTestResult) {
